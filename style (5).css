@@ -29,6 +29,13 @@
   --font-size-h4: 1.35rem;
   --font-size-text: 1.15rem;
   --border-radius: 8px;
+  --primary-color: #333;
+  --secondary-color: #666;
+  --background-color: #fff;
+  --text-color: #333;
+  --link-color: #0066cc;
+  --container-padding: 1rem;
+  --max-width: 1200px;
 }
 
 /*
@@ -64,6 +71,9 @@ body {
   line-height: 1.5;
   text-rendering: optimizeSpeed;
   overflow-x: hidden;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
 }
 
 /* Make images easier to work with */
@@ -209,12 +219,6 @@ blockquote::after {
   font-weight: var(--font-weight-strong);
 }
 
-body {
-  background-color: var(--color-background);
-  color: var(--color-text);
-  font-family: var(--font-family);
-}
-
 main {
   padding-top: 5vh;
   padding-bottom: 5vh;
@@ -264,10 +268,8 @@ header {
   min-height: 40vh;
   place-items: center;
   padding: 10vh 2rem;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%233a00ff' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d42257' fill-opacity='0.4'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-position: 0 -38px, 17px -40px;
-  color: var(--color-primary);
+  background-color: var(--primary-color);
+  color: white;
   text-align: center;
 }
 header h1 {
@@ -591,7 +593,7 @@ nav ul li {
   --logomark-padding: 0;
   position: relative;
   padding: 3rem 1rem;
-  background-color: var(--color-primary);
+  background-color: var(--primary-color);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='36' height='72' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d2fbf7' fill-opacity='1'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   background-repeat: repeat-x;
   background-position: center -34px;
@@ -631,22 +633,15 @@ nav ul li {
 
 .skip-link {
   position: absolute;
-  top: auto;
-  left: -10000px;
-  width: 1px;
-  height: 1px;
-  background-color: var(--color-secondary);
-  color: #fff;
-  font-size: 1.125rem;
-  overflow: hidden;
+  top: -40px;
+  left: 0;
+  background: var(--primary-color);
+  color: white;
+  padding: 8px;
+  z-index: 100;
 }
 .skip-link:focus {
-  position: fixed;
   top: 0;
-  left: 0;
-  width: auto;
-  height: auto;
-  padding: 0.5em;
 }
 
 [class^=link]:not(.link-codepen) {
@@ -720,4 +715,61 @@ nav ul li {
   height: 1em;
   margin-right: 0.25em;
   fill: currentColor;
+}
+
+/* Desktop layout */
+@media screen and (min-width: 768px) {
+  :root {
+    --container-padding: 2rem;
+  }
+
+  /* Navigation */
+  nav ul {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  /* Main content layout */
+  main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+  }
+
+  /* Profile and featured styles */
+  aside {
+    margin-top: 0;
+  }
+
+  .profile {
+    position: sticky;
+    top: 80px;
+    height: fit-content;
+  }
+
+  /* Featured styles grid */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* Mobile-specific adjustments */
+@media screen and (max-width: 767px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  header h2 {
+    font-size: 1.2rem;
+  }
+
+  article h2 {
+    font-size: 1.8rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
 }
