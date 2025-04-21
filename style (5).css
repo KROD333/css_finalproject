@@ -15,9 +15,9 @@
 }
 :root {
   /* Primary colors */
-  --color-primary: #2c3e50;
-  --color-primary-light: #34495e;
-  --color-primary-dark: #1a252f;
+  --color-primary: #000000;
+  --color-primary-light: #000000;
+  --color-primary-dark: #040524;
   
   /* Accent colors */
   --color-accent: #3498db;
@@ -148,10 +148,10 @@ body {
   text-rendering: optimizeSpeed;
   overflow-x: hidden;
   font-family: var(--font-primary);
-  color: var(--text-color);
+  color: #00ff00;
   background-color: var(--cyber-black);
-  color: #fff;
-  font-family: 'Orbitron', 'Rajdhani', sans-serif;
+  letter-spacing: var(--letter-spacing-normal);
+  font-weight: var(--font-weight-normal);
   position: relative;
 }
 
@@ -342,6 +342,9 @@ main {
   background: var(--cyber-dark);
   border: 1px solid var(--neon-blue);
   box-shadow: var(--glow-md) var(--neon-blue);
+  margin-right: 30em;
+  margin-left: 30em;
+  padding-left: 15rem;
 }
 
 main ul {
@@ -356,19 +359,19 @@ main ul {
 }
 
 main ul li {
-  background: var(--cyber-light);
+  background: #000000;
   padding: 1rem;
   border: 1px solid var(--neon-pink);
   border-radius: var(--radius-md);
-  color: var(--neon-green);
-  text-shadow: var(--glow-sm) var(--neon-green);
+  color: #ff00f2;
+  text-shadow: var(--glow-sm) #87CEEB;
   transition: all var(--transition-normal);
 }
 
 main ul li:hover {
   transform: translateY(-5px);
-  box-shadow: var(--glow-md) var(--neon-pink);
-  background: var(--cyber-dark);
+  box-shadow: var(--glow-md) #87CEEB;
+  background: #1a1a1a;
 }
 
 article section {
